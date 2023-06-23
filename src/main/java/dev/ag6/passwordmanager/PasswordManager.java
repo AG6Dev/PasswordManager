@@ -8,10 +8,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public final class PasswordManager extends Application {
+    private static PasswordManager manager;
+
     private BorderPane root;
+
+    public static PasswordManager getManager() {
+        return manager;
+    }
 
     @Override
     public void start(Stage primaryStage) {
+        manager = this;
+
         this.root = new BorderPane();
 
         var welcomeView = new WelcomeView();
@@ -28,5 +36,9 @@ public final class PasswordManager extends Application {
         primaryStage.show();
 
         welcomeController.init();
+    }
+
+    public BorderPane getRoot() {
+        return root;
     }
 }
