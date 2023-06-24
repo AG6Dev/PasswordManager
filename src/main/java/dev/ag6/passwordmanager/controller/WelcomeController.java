@@ -17,7 +17,7 @@ public class WelcomeController {
             var controller = new MainController(view);
 
             PasswordManager.getManager().getRoot().getChildren().clear();
-            PasswordManager.getManager().getRoot().getChildren().addAll(view.getRoot());
+            PasswordManager.getManager().getRoot().setCenter(view.getRoot());
 
             controller.initialize();
         });

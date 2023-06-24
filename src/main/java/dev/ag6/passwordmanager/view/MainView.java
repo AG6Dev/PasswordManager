@@ -1,11 +1,13 @@
 package dev.ag6.passwordmanager.view;
 
 import dev.ag6.passwordmanager.components.AccountView;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class MainView {
     private final BorderPane root;
@@ -20,12 +22,17 @@ public class MainView {
         this.root = new BorderPane();
 
         accountList = new ListView<>();
-        accountList.setMinWidth(500);
-        accountList.setMinHeight(500);
+
 
         topBox = new HBox();
+        topBox.setAlignment(Pos.TOP_CENTER);
+        topBox.setPadding(new Insets(10D));
+        topBox.setSpacing(10D);
+
+
         searchField = new TextField();
         searchField.setPromptText("Search...");
+        searchField.setPrefWidth(200D);
         addButton = new Button();
         addButton.setText("Add Account");
 
