@@ -11,17 +11,33 @@ public class MainController {
 
     private final ObservableList<AccountView> accounts = FXCollections.observableArrayList();
 
-
     public MainController(MainView view) {
         this.view = view;
     }
 
     public void initialize() {
         view.getAddButton().setOnAction(actionEvent -> {
-            var account = new Account("New Account", "New Username", "New Password", "sweoiyfghuiw");
-            accounts.add(new AccountView(account));
+            var account = new Account("name", "password", "https://www.google.com", "google", "wpofjsweuihfweoig");
+            var account2 = new Account("name", "password", "https://www.google.com", "facebook", "wpofjsweuihfweoig");
+            accounts.addAll(new AccountView(account), new AccountView(account2));
 
             System.out.println(accounts);
+        });
+
+        view.getSearchField().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                view.getAccountList().setItems(accounts);
+            } else {
+                ObservableList<AccountView> filteredAccounts = FXCollections.observableArrayList();
+
+                for (AccountView account : accounts) {
+                    if (account.getAccount().getWebsiteName().toLowerCase().contains(newValue.toLowerCase())) {
+                        filteredAccounts.add(account);
+                    }
+                }
+
+                view.getAccountList().setItems(filteredAccounts);
+            }
         });
 
         view.getAccountList().setItems(accounts);

@@ -23,10 +23,13 @@ public class AccountView extends StackPane {
         this.label = new Label(account.getUsername());
         label.setAlignment(Pos.CENTER);
 
-
         getChildren().add(label);
 
         setPrefWidth(200.0D);
         setPrefHeight(200.0D);
+    }
+
+    public Account getAccount() {
+        return account;
     }
 }
