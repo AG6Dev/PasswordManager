@@ -22,13 +22,12 @@ public class MainView {
         this.root = new BorderPane();
 
         accountList = new ListView<>();
-
+        accountList.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
 
         topBox = new HBox();
         topBox.setAlignment(Pos.TOP_CENTER);
         topBox.setPadding(new Insets(10D));
         topBox.setSpacing(10D);
-
 
         searchField = new TextField();
         searchField.setPromptText("Search...");
