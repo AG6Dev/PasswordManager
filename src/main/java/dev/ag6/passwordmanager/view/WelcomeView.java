@@ -1,13 +1,12 @@
 package dev.ag6.passwordmanager.view;
 
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextAlignment;
 
-public class WelcomeView {
+public class WelcomeView extends View {
     private final BorderPane root;
     private final Label label;
 
@@ -18,25 +17,25 @@ public class WelcomeView {
 
         this.label = new Label("Welcome to Password Manager!");
 
-        label.setTextAlignment(TextAlignment.CENTER);
-        label.setAlignment(Pos.CENTER);
+        this.label.setTextAlignment(TextAlignment.CENTER);
+        this.label.setAlignment(Pos.CENTER);
 
         this.button = new Button();
-        button.setText("Enter");
+        this.button.setText("Enter");
 
-        root.setTop(label);
-        root.setCenter(button);
+        this.root.setTop(label);
+        this.root.setCenter(button);
 
-        label.setTextAlignment(TextAlignment.CENTER);
-        label.setAlignment(Pos.CENTER);
-
-    }
-
-    public Parent getParent() {
-        return root;
+        this.label.setTextAlignment(TextAlignment.CENTER);
+        this.label.setAlignment(Pos.CENTER);
     }
 
     public Button getEnterButton() {
         return button;
+    }
+
+    @Override
+    public BorderPane getRoot() {
+        return root;
     }
 }

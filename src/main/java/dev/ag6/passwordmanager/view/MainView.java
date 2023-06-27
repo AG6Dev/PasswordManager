@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class MainView {
+public class MainView extends View {
     private final BorderPane root;
 
     private final ListView<AccountView> accountList;
@@ -21,26 +21,27 @@ public class MainView {
     public MainView() {
         this.root = new BorderPane();
 
-        accountList = new ListView<>();
-        accountList.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.accountList = new ListView<>();
+        this.accountList.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        topBox = new HBox();
-        topBox.setAlignment(Pos.TOP_CENTER);
-        topBox.setPadding(new Insets(10D));
-        topBox.setSpacing(10D);
+        this.topBox = new HBox();
+        this.topBox.setAlignment(Pos.TOP_CENTER);
+        this.topBox.setPadding(new Insets(10D));
+        this.topBox.setSpacing(10D);
 
-        searchField = new TextField();
-        searchField.setPromptText("Search...");
-        searchField.setPrefWidth(200D);
-        addButton = new Button();
-        addButton.setText("Add Account");
+        this.searchField = new TextField();
+        this.searchField.setPromptText("Search...");
+        this.searchField.setPrefWidth(200D);
+        this.addButton = new Button();
+        this.addButton.setText("Add Account");
 
-        topBox.getChildren().addAll(searchField, addButton);
+        this.topBox.getChildren().addAll(searchField, addButton);
 
-        root.setTop(topBox);
-        root.setCenter(accountList);
+        this.root.setTop(topBox);
+        this.root.setCenter(accountList);
     }
 
+    @Override
     public BorderPane getRoot() {
         return root;
     }

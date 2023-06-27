@@ -19,16 +19,16 @@ public class AccountView extends StackPane {
     public AccountView(Account account) {
         this.account = account;
 
-        setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        usernameLabel = new Label(account.getUsername());
-        websiteNameLabel = new Label(account.getWebsiteName());
-        websiteUrlLabel = new Label(account.getWebsiteUrl());
+        this.usernameLabel = new Label(account.getUsername());
+        this.websiteNameLabel = new Label(account.getWebsiteName());
+        this.websiteUrlLabel = new Label(account.getWebsiteUrl());
 
-        getChildren().addAll(usernameLabel, websiteNameLabel, websiteUrlLabel);
+        this.getChildren().addAll(usernameLabel, websiteNameLabel, websiteUrlLabel);
 
-        setPrefWidth(200.0D);
-        setPrefHeight(200.0D);
+        this.setPrefWidth(200.0D);
+        this.setPrefHeight(200.0D);
     }
 
     public Account getAccount() {

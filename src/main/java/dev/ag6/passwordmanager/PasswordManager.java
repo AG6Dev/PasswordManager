@@ -1,6 +1,8 @@
 package dev.ag6.passwordmanager;
 
+import dev.ag6.passwordmanager.controller.Controller;
 import dev.ag6.passwordmanager.controller.WelcomeController;
+import dev.ag6.passwordmanager.view.View;
 import dev.ag6.passwordmanager.view.WelcomeView;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -25,8 +27,7 @@ public final class PasswordManager extends Application {
         var welcomeView = new WelcomeView();
         var welcomeController = new WelcomeController(welcomeView);
 
-        root.getChildren().clear();
-        root.setCenter(welcomeView.getParent());
+        changeView(welcomeView, welcomeController);
 
         Scene scene = new Scene(root, 800, 600);
 
@@ -34,11 +35,15 @@ public final class PasswordManager extends Application {
         primaryStage.setTitle("Password Manager");
         primaryStage.centerOnScreen();
         primaryStage.show();
-
-        welcomeController.init();
     }
 
     public BorderPane getRoot() {
         return root;
+    }
+
+    public static <V extends View> void changeView(V view, Controller<V> controller) {
+        manager.getRoot().getChildren().clear();
+        manager.getRoot().setCenter(view.getRoot());
+        controller.initialize();
     }
 }

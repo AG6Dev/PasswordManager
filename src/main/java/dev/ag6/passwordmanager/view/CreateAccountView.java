@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class CreateAccountView {
+public class CreateAccountView extends View {
     private final BorderPane root;
 
     private final VBox formBox;
@@ -24,39 +24,39 @@ public class CreateAccountView {
     public CreateAccountView() {
         this.root = new BorderPane();
 
-        formBox = new VBox();
+        this.formBox = new VBox();
         this.formBox.setSpacing(10.0D);
 
-        usernameField = new TextField();
+        this.usernameField = new TextField();
         this.usernameField.setPromptText("Enter Username");
 
-        passwordField = new TextField();
+        this.passwordField = new TextField();
         this.passwordField.setPromptText("Enter Password");
 
-        websiteNameField = new TextField();
+        this.websiteNameField = new TextField();
         this.websiteNameField.setPromptText("Enter Website Name");
 
-        websiteUrlField = new TextField();
+        this.websiteUrlField = new TextField();
         this.websiteUrlField.setPromptText("Enter Website URL");
 
-        notesArea = new TextArea();
+        this.notesArea = new TextArea();
         this.notesArea.setPromptText("Extra Notes...");
 
-        formBox.getChildren().addAll(usernameField, passwordField, websiteNameField, websiteUrlField, notesArea);
+        this.formBox.getChildren().addAll(usernameField, passwordField, websiteNameField, websiteUrlField, notesArea);
 
-        buttonBox = new HBox();
+        this.buttonBox = new HBox();
         this.buttonBox.setSpacing(10.0D);
 
-        saveButton = new Button();
+        this.saveButton = new Button();
         this.saveButton.setText("Save");
 
-        cancelButton = new Button();
+        this.cancelButton = new Button();
         this.cancelButton.setText("Cancel");
 
-        buttonBox.getChildren().addAll(saveButton, cancelButton);
+        this.buttonBox.getChildren().addAll(saveButton, cancelButton);
 
-        root.setCenter(formBox);
-        root.setBottom(buttonBox);
+        this.root.setCenter(formBox);
+        this.root.setBottom(buttonBox);
     }
 
     public BorderPane getRoot() {

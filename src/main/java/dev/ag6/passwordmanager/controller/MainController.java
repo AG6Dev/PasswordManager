@@ -8,30 +8,18 @@ import dev.ag6.passwordmanager.view.MainView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class MainController {
-    private final MainView view;
-
+public class MainController extends Controller<MainView> {
     public static final ObservableList<AccountView> accounts = FXCollections.observableArrayList();
 
     public MainController(MainView view) {
-        this.view = view;
+        super(view);
     }
 
     public void initialize() {
         view.getAddButton().setOnAction(actionEvent -> {
-/*            var account = new Account("name", "password", "https://www.google.com", "google", "wpofjsweuihfweoig");
-            var account2 = new Account("name", "password", "https://www.google.com", "facebook", "wpofjsweuihfweoig");
-            accounts.addAll(new AccountView(account), new AccountView(account2));*/
-
             var createAccountView = new CreateAccountView();
             var createAccountController = new CreateAccountController(createAccountView);
-
-            PasswordManager.getManager().getRoot().getChildren().clear();
-            PasswordManager.getManager().getRoot().setCenter(createAccountView.getRoot());
-
-            createAccountController.initialize();
-
-            System.out.println(accounts);
+            PasswordManager.changeView(createAccountView, createAccountController);
         });
 
         view.getSearchField().textProperty().addListener((observable, oldValue, newValue) -> {
@@ -39,17 +27,14 @@ public class MainController {
                 view.getAccountList().setItems(accounts);
             } else {
                 ObservableList<AccountView> filteredAccounts = FXCollections.observableArrayList();
-
                 for (AccountView account : accounts) {
                     if (account.getAccount().getWebsiteName().toLowerCase().contains(newValue.toLowerCase())) {
                         filteredAccounts.add(account);
                     }
                 }
-
                 view.getAccountList().setItems(filteredAccounts);
             }
         });
-
         view.getAccountList().setItems(accounts);
     }
 }
