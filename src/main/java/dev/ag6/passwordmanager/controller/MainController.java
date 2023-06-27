@@ -1,7 +1,9 @@
 package dev.ag6.passwordmanager.controller;
 
+import dev.ag6.passwordmanager.PasswordManager;
 import dev.ag6.passwordmanager.components.AccountView;
 import dev.ag6.passwordmanager.model.Account;
+import dev.ag6.passwordmanager.view.CreateAccountView;
 import dev.ag6.passwordmanager.view.MainView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,7 +11,7 @@ import javafx.collections.ObservableList;
 public class MainController {
     private final MainView view;
 
-    private final ObservableList<AccountView> accounts = FXCollections.observableArrayList();
+    public static final ObservableList<AccountView> accounts = FXCollections.observableArrayList();
 
     public MainController(MainView view) {
         this.view = view;
@@ -17,9 +19,17 @@ public class MainController {
 
     public void initialize() {
         view.getAddButton().setOnAction(actionEvent -> {
-            var account = new Account("name", "password", "https://www.google.com", "google", "wpofjsweuihfweoig");
+/*            var account = new Account("name", "password", "https://www.google.com", "google", "wpofjsweuihfweoig");
             var account2 = new Account("name", "password", "https://www.google.com", "facebook", "wpofjsweuihfweoig");
-            accounts.addAll(new AccountView(account), new AccountView(account2));
+            accounts.addAll(new AccountView(account), new AccountView(account2));*/
+
+            var createAccountView = new CreateAccountView();
+            var createAccountController = new CreateAccountController(createAccountView);
+
+            PasswordManager.getManager().getRoot().getChildren().clear();
+            PasswordManager.getManager().getRoot().setCenter(createAccountView.getRoot());
+
+            createAccountController.initialize();
 
             System.out.println(accounts);
         });
