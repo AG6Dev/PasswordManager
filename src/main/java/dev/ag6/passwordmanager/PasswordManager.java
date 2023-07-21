@@ -1,6 +1,7 @@
 package dev.ag6.passwordmanager;
 
 import dev.ag6.passwordmanager.controller.Controller;
+import dev.ag6.passwordmanager.controller.MainController;
 import dev.ag6.passwordmanager.controller.WelcomeController;
 import dev.ag6.passwordmanager.view.View;
 import dev.ag6.passwordmanager.view.WelcomeView;
@@ -23,7 +24,6 @@ public final class PasswordManager extends Application {
     @Override
     public void start(Stage primaryStage) {
         manager = this;
-
         this.root = new BorderPane();
 
         var welcomeView = new WelcomeView();

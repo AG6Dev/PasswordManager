@@ -20,8 +20,11 @@ public class CreateAccountController extends Controller<CreateAccountView> {
         this.view.getSaveButton().setOnAction(actionEvent -> {
             var mainView = new MainView();
             var mainController = new MainController(mainView);
-            MainController.accounts.add(new Account(view.getUsernameField().getText(), view.getPasswordField().getText(), view.getWebsiteUrlField().getText(), view.getWebsiteNameField().getText(), view.getNotesArea().getText()));
-            mainController.saveAccounts();
+            Account account = new Account(view.getUsernameField().getText(), view.getPasswordField().getText(), view.getWebsiteUrlField().getText(), view.getWebsiteNameField().getText(), view.getNotesArea().getText());
+
+            MainController.accounts.add(account);
+            mainController.saveAccount(account);
+
             PasswordManager.changeView(mainView, mainController);
         });
     }

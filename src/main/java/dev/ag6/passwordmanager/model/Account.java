@@ -24,8 +24,6 @@ public class Account extends StackPane {
         this.websiteName = websiteName;
         this.notes = notes;
 
-        this.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-
         this.leftBox = new VBox();
         this.leftBox.setSpacing(10.0D);
         this.leftBox.setAlignment(Pos.CENTER_LEFT);
@@ -47,5 +45,7 @@ public class Account extends StackPane {
 
         this.setPrefWidth(200.0D);
         this.setPrefHeight(200.0D);
+
+        this.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 }
