@@ -8,26 +8,26 @@ import javafx.scene.text.TextAlignment;
 
 public class WelcomeView extends View {
     private final BorderPane root;
-    private final Label label;
+    private final Label welcomeLabel;
 
     private final Button button;
 
     public WelcomeView() {
         this.root = new BorderPane();
 
-        this.label = new Label("Welcome to Password Manager!");
+        this.welcomeLabel = new Label("Welcome to Password Manager!");
 
-        this.label.setTextAlignment(TextAlignment.CENTER);
-        this.label.setAlignment(Pos.CENTER);
+        this.welcomeLabel.setTextAlignment(TextAlignment.CENTER);
+        this.welcomeLabel.setAlignment(Pos.CENTER);
 
         this.button = new Button();
         this.button.setText("Enter");
 
-        this.root.setTop(label);
+        this.root.setTop(welcomeLabel);
         this.root.setCenter(button);
 
-        this.label.setTextAlignment(TextAlignment.CENTER);
-        this.label.setAlignment(Pos.CENTER);
+        this.welcomeLabel.setTextAlignment(TextAlignment.CENTER);
+        this.welcomeLabel.setAlignment(Pos.CENTER);
     }
 
     public Button getEnterButton() {

@@ -1,6 +1,6 @@
 package dev.ag6.passwordmanager.view;
 
-import dev.ag6.passwordmanager.components.AccountView;
+import dev.ag6.passwordmanager.model.Account;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 public class MainView extends View {
     private final BorderPane root;
 
-    private final ListView<AccountView> accountList;
+    private final ListView<Account> accountList;
 
     private final HBox topBox;
     private final TextField searchField;
@@ -46,7 +46,7 @@ public class MainView extends View {
         return root;
     }
 
-    public ListView<AccountView> getAccountList() {
+    public ListView<Account> getAccountList() {
         return accountList;
     }
 

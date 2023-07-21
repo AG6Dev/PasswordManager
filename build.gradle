@@ -6,12 +6,27 @@ plugins {
 }
 
 group 'dev.ag6.passwordmanager'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = JavaVersion.VERSION_19
+version '1.0.0'
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    implementation 'org.controlsfx:controlsfx:11.1.2'
+    implementation 'org.kordamp.ikonli:ikonli-javafx:12.3.1'
+
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'io.github.palexdev:materialfx:11.14.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+}
+
+javafx {
+    version = '19'
+    modules = ['javafx.controls']
 }
 
 jar {
@@ -24,26 +39,10 @@ jar {
 
 application {
     mainClass = 'dev.ag6.passwordmanager.Main'
-    //mainModule = 'dev.ag6.passwordmanager'
-}
-
-dependencies {
-    implementation('org.controlsfx:controlsfx:11.1.2')
-    implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
-
-    implementation('org.jetbrains:annotations:23.0.0')
-    implementation('org.hildan.fxgson:fx-gson:5.0.0')
-    implementation 'io.github.palexdev:materialfx:11.14.0'
-
-    annotationProcessor group: "org.projectlombok", name: "lombok", version: "1.18.26"
-    compileOnly group: "org.projectlombok", name: "lombok", version: "1.18.26"
-}
-
-javafx {
-    version = '19'
-    modules = ['javafx.controls']
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+sourceCompatibility = JavaVersion.VERSION_19

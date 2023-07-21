@@ -1,63 +1,51 @@
 package dev.ag6.passwordmanager.model;
 
-import javafx.beans.property.SimpleStringProperty;
+import com.google.gson.annotations.Expose;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-public class Account {
-    private final SimpleStringProperty username = new SimpleStringProperty("");
-    private final SimpleStringProperty password = new SimpleStringProperty("");
-    private final SimpleStringProperty websiteName = new SimpleStringProperty("");
-    private final SimpleStringProperty websiteUrl = new SimpleStringProperty("");
-    private final SimpleStringProperty notes = new SimpleStringProperty("");
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class Account extends StackPane {
+    private final Label usernameLabel, websiteNameLabel, websiteUrlLabel, notesLabel;
+    private final VBox leftBox, rightBox;
+    @Expose
+    private String username, password, websiteName, websiteUrl, notes;
 
     public Account(String username, String password, String websiteUrl, String websiteName, String notes) {
-        this.username.set(username);
-        this.password.set(password);
-        this.websiteUrl.set(websiteUrl);
-        this.websiteName.set(websiteName);
-        this.notes.set(notes);
-    }
+        this.username = username;
+        this.password = password;
+        this.websiteUrl = websiteUrl;
+        this.websiteName = websiteName;
+        this.notes = notes;
 
-    public Account() {
+        this.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
 
-    }
+        this.leftBox = new VBox();
+        this.leftBox.setSpacing(10.0D);
+        this.leftBox.setAlignment(Pos.CENTER_LEFT);
+        this.leftBox.setPadding(new Insets(0, 0, 0, 10));
 
-    public String getUsername() {
-        return username.get();
-    }
+        this.usernameLabel = new Label(this.getUsername());
+        this.websiteNameLabel = new Label(this.getWebsiteName());
+        this.websiteUrlLabel = new Label(this.getWebsiteUrl());
 
-    public void setUsername(String username) {
-        this.username.set(username);
-    }
+        this.rightBox = new VBox();
+        this.rightBox.setAlignment(Pos.CENTER_RIGHT);
+        this.notesLabel = new Label(this.getNotes());
 
-    public String getPassword() {
-        return password.get();
-    }
 
-    public void setPassword(String password) {
-        this.password.set(password);
-    }
+        this.leftBox.getChildren().addAll(usernameLabel, websiteNameLabel, websiteUrlLabel);
+        this.rightBox.getChildren().add(notesLabel);
 
-    public String getWebsiteUrl() {
-        return websiteUrl.get();
-    }
+        this.getChildren().addAll(leftBox, rightBox);
 
-    public void setWebsiteUrl(String websiteUrl) {
-        this.websiteUrl.set(websiteUrl);
-    }
-
-    public String getNotes() {
-        return notes.get();
-    }
-
-    public void setNotes(String notes) {
-        this.notes.set(notes);
-    }
-
-    public String getWebsiteName() {
-        return this.websiteName.get();
-    }
-
-    public void setWebsiteName(String websiteName) {
-        this.websiteName.set(websiteName);
+        this.setPrefWidth(200.0D);
+        this.setPrefHeight(200.0D);
     }
 }

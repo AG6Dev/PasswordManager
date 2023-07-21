@@ -18,6 +18,7 @@ public class CreateAccountView extends View {
     private final TextArea notesArea;
 
     private final HBox buttonBox;
+
     private final Button saveButton;
     private final Button cancelButton;
 

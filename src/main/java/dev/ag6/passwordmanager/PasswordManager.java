@@ -14,8 +14,10 @@ public final class PasswordManager extends Application {
 
     private BorderPane root;
 
-    public static PasswordManager getManager() {
-        return manager;
+    public static <V extends View> void changeView(V view, Controller<V> controller) {
+        manager.getRoot().getChildren().clear();
+        manager.getRoot().setCenter(view.getRoot());
+        controller.initialize();
     }
 
     @Override
@@ -39,11 +41,5 @@ public final class PasswordManager extends Application {
 
     public BorderPane getRoot() {
         return root;
-    }
-
-    public static <V extends View> void changeView(V view, Controller<V> controller) {
-        manager.getRoot().getChildren().clear();
-        manager.getRoot().setCenter(view.getRoot());
-        controller.initialize();
     }
 }
