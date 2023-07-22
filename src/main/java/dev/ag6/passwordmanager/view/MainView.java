@@ -1,5 +1,6 @@
 package dev.ag6.passwordmanager.view;
 
+import com.sun.javafx.css.StyleManager;
 import io.github.palexdev.materialfx.font.FontResources;
 import io.github.palexdev.materialfx.font.MFXFontIcon;
 import javafx.geometry.Insets;
@@ -24,8 +25,10 @@ public class MainView extends View {
 
     //242526, 18191A, 3a3b3c
     public MainView() {
+
         this.mainFrame = new AnchorPane();
         this.mainFrame.setBackground(new Background(new BackgroundFill(Color.web("#121212"), new CornerRadii(15D), Insets.EMPTY)));
+        this.getMainFrame().getStylesheets().add("css/main.css");
 
         this.windowHeader = new HBox();
         this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false ), Insets.EMPTY)));
@@ -47,19 +50,22 @@ public class MainView extends View {
         windowHeaderRight.setSpacing(10D);
 
         this.alwaysOnTopButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.web("#7a0ed9"));
+        this.alwaysOnTopButton.getStyleClass().add("always-on-top-button");
         this.alwaysOnTopButton.setOpacity(0.5D);
 
         this.minimizeButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.rgb(255, 191, 55));
+        this.minimizeButton.getStyleClass().add("minimize-button");
         this.minimizeButton.setOpacity(0.5D);
 
         this.closeButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.rgb(239, 110, 107));
+        this.closeButton.getStyleClass().add("close-button");
         this.closeButton.setOpacity(0.5D);
 
         Region filler = new Region();
         HBox.setHgrow(filler, Priority.ALWAYS);
 
         this.contentArea = new StackPane();
-        AnchorPane.setTopAnchor(contentArea, 37D);
+        AnchorPane.setTopAnchor(contentArea, 43D);
         AnchorPane.setLeftAnchor(contentArea, 0D);
         AnchorPane.setRightAnchor(contentArea, 0D);
         AnchorPane.setBottomAnchor(contentArea, 0D);
@@ -80,5 +86,4 @@ public class MainView extends View {
     public void addDebugBorder(Region node, Color color) {
         node.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
     }
-
 }

@@ -1,0 +1,15 @@
+.always-on-top-button:hover {
+    -fx-opacity: 1.0;
+}
+
+.always-on-top-button:always-on-top {
+	-fx-opacity: 1.0;
+}
+
+.close-button:hover {
+    -fx-opacity: 1.0;
+}
+
+.minimize-button:hover {
+    -fx-opacity: 1.0;
+}
