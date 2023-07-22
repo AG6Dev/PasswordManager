@@ -13,7 +13,7 @@ public class WelcomeController extends Controller<WelcomeView> {
     public void initialize() {
         this.view.getEnterButton().setOnAction(actionEvent -> {
             var view = new MainView();
-            var controller = new MainController(view);
+            var controller = new MainController(null, view);
 
             PasswordManager.changeView(view, controller);
 

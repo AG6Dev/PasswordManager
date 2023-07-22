@@ -1,7 +1,7 @@
 package dev.ag6.passwordmanager.view;
 
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 public abstract class View {
-    public abstract BorderPane getRoot();
+    public abstract Pane getRoot();
 }

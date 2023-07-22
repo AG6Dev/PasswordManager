@@ -1,60 +1,84 @@
 package dev.ag6.passwordmanager.view;
 
-import dev.ag6.passwordmanager.model.Account;
+import io.github.palexdev.materialfx.font.FontResources;
+import io.github.palexdev.materialfx.font.MFXFontIcon;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import lombok.Getter;
 
 public class MainView extends View {
-    private final BorderPane root;
+    @Getter
+    private final AnchorPane mainFrame;
+    @Getter
+    private final HBox windowHeader;
 
-    private final ListView<Account> accountList;
+    @Getter
+    private final StackPane contentArea;
 
-    private final HBox topBox;
-    private final TextField searchField;
-    private final Button addButton;
+    @Getter
+    private final MFXFontIcon minimizeButton, closeButton, alwaysOnTopButton;
 
+    //242526, 18191A, 3a3b3c
     public MainView() {
-        this.root = new BorderPane();
+        this.mainFrame = new AnchorPane();
+        this.mainFrame.setBackground(new Background(new BackgroundFill(Color.web("#121212"), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        this.accountList = new ListView<>();
-        this.accountList.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.windowHeader = new HBox();
+        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), CornerRadii.EMPTY, Insets.EMPTY)));
+        this.windowHeader.setAlignment(Pos.CENTER);
+        this.windowHeader.setPadding(new Insets(10D));
 
-        this.topBox = new HBox();
-        this.topBox.setAlignment(Pos.TOP_CENTER);
-        this.topBox.setPadding(new Insets(10D));
-        this.topBox.setSpacing(10D);
+        AnchorPane.setTopAnchor(windowHeader, 0D);
+        AnchorPane.setLeftAnchor(windowHeader, 0D);
+        AnchorPane.setRightAnchor(windowHeader, 0D);
 
-        this.searchField = new TextField();
-        this.searchField.setPromptText("Search...");
-        this.searchField.setPrefWidth(200D);
-        this.addButton = new Button();
-        this.addButton.setText("Add Account");
+        HBox windowHeaderLeft = new HBox();
+        Label windowTitle = new Label("Password Manager");
+        windowTitle.setFont(Font.font("Roboto", 15));
+        windowTitle.setTextFill(Color.WHITE);
+        windowHeaderLeft.setAlignment(Pos.CENTER_LEFT);
 
-        this.topBox.getChildren().addAll(searchField, addButton);
+        HBox windowHeaderRight = new HBox();
+        windowHeaderRight.setAlignment(Pos.CENTER_RIGHT);
+        windowHeaderRight.setSpacing(5D);
 
-        this.root.setTop(topBox);
-        this.root.setCenter(accountList);
+        this.alwaysOnTopButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.web("#7a0ed9"));
+        this.alwaysOnTopButton.setOpacity(0.5D);
+
+        this.minimizeButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.rgb(255, 191, 55));
+        this.minimizeButton.setOpacity(0.5D);
+
+        this.closeButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.rgb(239, 110, 107));
+        this.closeButton.setOpacity(0.5D);
+
+        Region filler = new Region();
+        HBox.setHgrow(filler, Priority.ALWAYS);
+
+        this.contentArea = new StackPane();
+        AnchorPane.setTopAnchor(contentArea, 37D);
+        AnchorPane.setLeftAnchor(contentArea, 0D);
+        AnchorPane.setRightAnchor(contentArea, 0D);
+        AnchorPane.setBottomAnchor(contentArea, 0D);
+
+        windowHeaderLeft.getChildren().add(windowTitle);
+        windowHeaderRight.getChildren().addAll(alwaysOnTopButton, minimizeButton, closeButton);
+        this.windowHeader.getChildren().addAll(windowHeaderLeft, filler, windowHeaderRight);
+
+        this.mainFrame.getChildren().add(windowHeader);
+        this.mainFrame.getChildren().add(contentArea);
     }
 
     @Override
-    public BorderPane getRoot() {
-        return root;
+    public Pane getRoot() {
+        return this.mainFrame;
     }
 
-    public ListView<Account> getAccountList() {
-        return accountList;
+    public void addDebugBorder(Region node, Color color) {
+        node.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
     }
 
-    public Button getAddButton() {
-        return addButton;
-    }
-
-    public TextField getSearchField() {
-        return searchField;
-    }
 }
