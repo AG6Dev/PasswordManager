@@ -25,10 +25,10 @@ public class MainView extends View {
     //242526, 18191A, 3a3b3c
     public MainView() {
         this.mainFrame = new AnchorPane();
-        this.mainFrame.setBackground(new Background(new BackgroundFill(Color.web("#121212"), CornerRadii.EMPTY, Insets.EMPTY)));
+        this.mainFrame.setBackground(new Background(new BackgroundFill(Color.web("#121212"), new CornerRadii(15D), Insets.EMPTY)));
 
         this.windowHeader = new HBox();
-        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), CornerRadii.EMPTY, Insets.EMPTY)));
+        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false ), Insets.EMPTY)));
         this.windowHeader.setAlignment(Pos.CENTER);
         this.windowHeader.setPadding(new Insets(10D));
 
@@ -44,7 +44,7 @@ public class MainView extends View {
 
         HBox windowHeaderRight = new HBox();
         windowHeaderRight.setAlignment(Pos.CENTER_RIGHT);
-        windowHeaderRight.setSpacing(5D);
+        windowHeaderRight.setSpacing(10D);
 
         this.alwaysOnTopButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.web("#7a0ed9"));
         this.alwaysOnTopButton.setOpacity(0.5D);
