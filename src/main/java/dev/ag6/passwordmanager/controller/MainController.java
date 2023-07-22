@@ -1,5 +1,6 @@
 package dev.ag6.passwordmanager.controller;
 
+import dev.ag6.passwordmanager.view.HomeView;
 import dev.ag6.passwordmanager.view.MainView;
 import dev.ag6.passwordmanager.view.View;
 import javafx.application.Platform;
@@ -33,11 +34,14 @@ public class MainController extends Controller<MainView> {
             this.cursorOffsetY = (int) (stage.getY() - event.getScreenY());
         });
 
-        //TODO: Fix the cursor teleporting to the corner, offset of some kind required.
         this.view.getWindowHeader().setOnMouseDragged(event -> {
             stage.setX(event.getScreenX() + cursorOffsetX);
             stage.setY(event.getScreenY() + cursorOffsetY);
         });
+
+        HomeView view = new HomeView();
+        HomeController controller = new HomeController(view);
+        changeView(view, controller);
     }
 
     public void changeView(View view, Controller<? extends View> controller) {
