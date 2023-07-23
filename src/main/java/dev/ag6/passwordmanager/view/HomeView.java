@@ -35,7 +35,6 @@ public class HomeView extends View {
         this.topBar.setSpacing(10D);
         this.topBar.setPadding(new Insets(10D));
 
-        //TODO: Make this not focused on startup
         this.searchField = new TextField();
         this.searchField.setPromptText("Search for Account...");
         this.searchField.setPrefHeight(35D);
