@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import dev.ag6.passwordmanager.PasswordManager;
 import dev.ag6.passwordmanager.model.Account;
-import dev.ag6.passwordmanager.view.CreateAccountView;
+import dev.ag6.passwordmanager.view.OldCreateAccountView;
 import dev.ag6.passwordmanager.view.OldMainView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,8 +34,8 @@ public class OldMainController extends Controller<OldMainView> {
         List<Account> l = loadAccounts();
 
         view.getAddButton().setOnAction(actionEvent -> {
-            var createAccountView = new CreateAccountView();
-            var createAccountController = new CreateAccountController(createAccountView);
+            var createAccountView = new OldCreateAccountView();
+            var createAccountController = new OldCreateAccountController(createAccountView);
             PasswordManager.changeView(createAccountView, createAccountController);
         });
 

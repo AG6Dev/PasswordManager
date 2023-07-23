@@ -1,94 +1,66 @@
 package dev.ag6.passwordmanager.view;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import lombok.Getter;
 
 public class CreateAccountView extends View {
-    private final BorderPane root;
+    private final BorderPane contentRoot;
 
-    private final VBox formBox;
-    private final TextField usernameField;
-    private final TextField passwordField;
-    private final TextField websiteNameField;
-    private final TextField websiteUrlField;
-    private final TextArea notesArea;
+    @Getter
+    private final StackPane infoLayout;
 
-    private final HBox buttonBox;
+    @Getter
+    private final HBox bottomBar, mainDetailsBox;
 
-    private final Button saveButton;
-    private final Button cancelButton;
+    @Getter
+    private final MFXTextField usernameField, passwordField;
+
+    @Getter
+    private final Button backButton, createButton;
 
     public CreateAccountView() {
-        this.root = new BorderPane();
+        this.contentRoot = new BorderPane();
 
-        this.formBox = new VBox();
-        this.formBox.setSpacing(10.0D);
+        this.bottomBar = new HBox();
+        this.bottomBar.setAlignment(Pos.CENTER);
+        this.bottomBar.setSpacing(10D);
 
-        this.usernameField = new TextField();
-        this.usernameField.setPromptText("Enter Username");
 
-        this.passwordField = new TextField();
-        this.passwordField.setPromptText("Enter Password");
+        this.backButton = new MFXButton("Back");
+        this.backButton.setPrefSize(100D, 35D);
+        this.createButton = new MFXButton("Create");
+        this.createButton.setPrefSize(100D, 35D);
+        this.bottomBar.getChildren().addAll(this.backButton, this.createButton);
 
-        this.websiteNameField = new TextField();
-        this.websiteNameField.setPromptText("Enter Website Name");
+        this.infoLayout = new StackPane();
+        this.infoLayout.setBackground(Background.EMPTY);
 
-        this.websiteUrlField = new TextField();
-        this.websiteUrlField.setPromptText("Enter Website URL");
+        this.mainDetailsBox = new HBox();
+        this.usernameField = new MFXTextField();
+        this.usernameField.setPromptText("Username");
+        this.usernameField.setPrefSize(200D, 35D);
 
-        this.notesArea = new TextArea();
-        this.notesArea.setPromptText("Extra Notes...");
+        this.passwordField = new MFXTextField();
+        this.passwordField.setPromptText("Password");
+        this.passwordField.setPrefSize(200D, 35D);
 
-        this.formBox.getChildren().addAll(usernameField, passwordField, websiteNameField, websiteUrlField, notesArea);
+        this.mainDetailsBox.getChildren().addAll(this.usernameField, this.passwordField);
 
-        this.buttonBox = new HBox();
-        this.buttonBox.setSpacing(10.0D);
+        addDebugLines(this.infoLayout, Color.RED);
+        this.infoLayout.getChildren().add(this.mainDetailsBox);
 
-        this.saveButton = new Button();
-        this.saveButton.setText("Save");
 
-        this.cancelButton = new Button();
-        this.cancelButton.setText("Cancel");
-
-        this.buttonBox.getChildren().addAll(saveButton, cancelButton);
-
-        this.root.setCenter(formBox);
-        this.root.setBottom(buttonBox);
+        this.contentRoot.setCenter(this.infoLayout);
+        this.contentRoot.setBottom(bottomBar);
     }
 
-    public BorderPane getRoot() {
-        return root;
-    }
-
-    public TextField getUsernameField() {
-        return usernameField;
-    }
-
-    public TextField getPasswordField() {
-        return passwordField;
-    }
-
-    public TextField getWebsiteNameField() {
-        return websiteNameField;
-    }
-
-    public TextField getWebsiteUrlField() {
-        return websiteUrlField;
-    }
-
-    public TextArea getNotesArea() {
-        return notesArea;
-    }
-
-    public Button getSaveButton() {
-        return saveButton;
-    }
-
-    public Button getCancelButton() {
-        return cancelButton;
+    @Override
+    public Pane getRoot() {
+        return contentRoot;
     }
 }
