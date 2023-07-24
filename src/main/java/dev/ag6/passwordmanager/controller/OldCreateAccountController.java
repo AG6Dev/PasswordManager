@@ -2,8 +2,8 @@ package dev.ag6.passwordmanager.controller;
 
 import dev.ag6.passwordmanager.PasswordManager;
 import dev.ag6.passwordmanager.model.Account;
-import dev.ag6.passwordmanager.view.OldCreateAccountView;
 import dev.ag6.passwordmanager.view.MainView;
+import dev.ag6.passwordmanager.view.OldCreateAccountView;
 import dev.ag6.passwordmanager.view.OldMainView;
 
 public class OldCreateAccountController extends Controller<OldCreateAccountView> {

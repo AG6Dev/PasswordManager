@@ -48,5 +48,7 @@ public class MainController extends Controller<MainView> {
         this.view.getContentArea().getChildren().clear();
         this.view.getContentArea().getChildren().add(view.getRoot());
         controller.initialize();
+
+        Platform.runLater(() -> view.getRoot().requestFocus());
     }
 }

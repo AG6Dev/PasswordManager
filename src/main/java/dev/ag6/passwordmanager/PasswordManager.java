@@ -11,6 +11,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+//TODO: Add a sort of "master password" which the current user needs to enter to get access to their passwords
+//TODO: Add some sort of encryption
 public final class PasswordManager extends Application {
     private static PasswordManager manager;
 

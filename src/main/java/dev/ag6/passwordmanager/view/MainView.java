@@ -1,6 +1,5 @@
 package dev.ag6.passwordmanager.view;
 
-import com.sun.javafx.css.StyleManager;
 import io.github.palexdev.materialfx.font.FontResources;
 import io.github.palexdev.materialfx.font.MFXFontIcon;
 import javafx.geometry.Insets;
@@ -31,7 +30,7 @@ public class MainView extends View {
         this.getMainFrame().getStylesheets().add("css/main.css");
 
         this.windowHeader = new HBox();
-        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false ), Insets.EMPTY)));
+        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false), Insets.EMPTY)));
         this.windowHeader.setAlignment(Pos.CENTER);
         this.windowHeader.setPadding(new Insets(10D));
 
@@ -70,7 +69,7 @@ public class MainView extends View {
         AnchorPane.setRightAnchor(contentArea, 0D);
         AnchorPane.setBottomAnchor(contentArea, 0D);
 
-        windowHeaderLeft.getChildren().add(windowTitle);
+        windowHeaderLeft.getChildren().addAll(windowTitle);
         windowHeaderRight.getChildren().addAll(alwaysOnTopButton, minimizeButton, closeButton);
         this.windowHeader.getChildren().addAll(windowHeaderLeft, filler, windowHeaderRight);
 
