@@ -2,6 +2,8 @@ package dev.ag6.passwordmanager.view;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import io.github.palexdev.materialfx.font.FontResources;
+import io.github.palexdev.materialfx.font.MFXFontIcon;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -39,10 +41,16 @@ public class CreateAccountView extends View {
         this.bottomBar.setAlignment(Pos.CENTER);
         this.bottomBar.setSpacing(10D);
 
-        this.backButton = new MFXButton("Back");
+        this.backButton = new MFXButton("Discard", new MFXFontIcon(FontResources.X_ALT.getDescription()));
         this.backButton.setPrefSize(100D, 35D);
-        this.createButton = new MFXButton("Create");
+        this.backButton.setBackground(new Background(new BackgroundFill(Color.web("#CF6679"), new CornerRadii(10D), Insets.EMPTY)));
+        this.backButton.setStyle("-fx-font-size:15");
+
+        this.createButton = new MFXButton("Create", new MFXFontIcon(FontResources.PLUS.getDescription()));
         this.createButton.setPrefSize(100D, 35D);
+        this.createButton.setBackground(new Background(new BackgroundFill(Color.web("#BB86FC"), new CornerRadii(10D), Insets.EMPTY)));
+        this.createButton.setStyle("-fx-font-size:15");
+
         this.bottomBar.getChildren().addAll(this.backButton, this.createButton);
 
         //main

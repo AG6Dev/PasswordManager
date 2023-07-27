@@ -1,6 +1,7 @@
 package dev.ag6.passwordmanager.controller;
 
 import dev.ag6.passwordmanager.PasswordManager;
+import dev.ag6.passwordmanager.model.Account;
 import dev.ag6.passwordmanager.view.CreateAccountView;
 import dev.ag6.passwordmanager.view.HomeView;
 
@@ -16,5 +17,7 @@ public class HomeController extends Controller<HomeView> {
             CreateAccountController createAccountController = new CreateAccountController(this, createAccountView);
             PasswordManager.changeView(createAccountView, createAccountController);
         });
+
+        this.view.getAccountGrid().add(new Account("JohnSmith123", "jsmith1999", "https://www.facebook.com", "facebook", "mine", 2958729L), 0, 0);
     }
 }

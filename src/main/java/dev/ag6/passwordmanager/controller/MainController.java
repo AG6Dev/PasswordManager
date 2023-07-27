@@ -1,5 +1,6 @@
 package dev.ag6.passwordmanager.controller;
 
+import dev.ag6.passwordmanager.PasswordManager;
 import dev.ag6.passwordmanager.view.HomeView;
 import dev.ag6.passwordmanager.view.MainView;
 import dev.ag6.passwordmanager.view.View;
@@ -22,7 +23,7 @@ public class MainController extends Controller<MainView> {
 
     @Override
     public void initialize() {
-        this.view.getCloseButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> Platform.exit());
+        this.view.getCloseButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> PasswordManager.shutdown(0));
         this.view.getMinimizeButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> stage.setIconified(true));
         this.view.getAlwaysOnTopButton().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             this.view.getAlwaysOnTopButton().pseudoClassStateChanged(PseudoClass.getPseudoClass("always-on-top"), !stage.isAlwaysOnTop());

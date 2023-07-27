@@ -5,6 +5,7 @@ import dev.ag6.passwordmanager.controller.MainController;
 import dev.ag6.passwordmanager.view.MainView;
 import dev.ag6.passwordmanager.view.View;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -40,5 +41,11 @@ public final class PasswordManager extends Application {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.centerOnScreen();
         primaryStage.show();
+    }
+
+    public static void shutdown(int code) {
+        Platform.exit();
+        //add save all
+        System.exit(code);
     }
 }

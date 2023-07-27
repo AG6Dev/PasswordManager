@@ -22,7 +22,6 @@ public class MainView extends View {
     @Getter
     private final MFXFontIcon minimizeButton, closeButton, alwaysOnTopButton;
 
-    //242526, 18191A, 3a3b3c
     public MainView() {
 
         this.mainFrame = new AnchorPane();

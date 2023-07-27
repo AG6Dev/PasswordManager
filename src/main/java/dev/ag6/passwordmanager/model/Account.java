@@ -14,10 +14,13 @@ import lombok.EqualsAndHashCode;
 public class Account extends StackPane {
     private final Label usernameLabel, websiteNameLabel, websiteUrlLabel, notesLabel;
     private final VBox leftBox, rightBox;
+
     @Expose
     private String username, password, websiteName, websiteUrl, notes;
+    @Expose
+    private long timestamp;
 
-    public Account(String username, String password, String websiteUrl, String websiteName, String notes) {
+    public Account(String username, String password, String websiteUrl, String websiteName, String notes, long timestamp) {
         this.username = username;
         this.password = password;
         this.websiteUrl = websiteUrl;
