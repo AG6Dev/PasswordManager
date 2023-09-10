@@ -1,7 +1,7 @@
 package dev.ag6.passwordmanager.controller;
 
 import dev.ag6.passwordmanager.PasswordManager;
-import dev.ag6.passwordmanager.view.HomeView;
+import dev.ag6.passwordmanager.view.LoginView;
 import dev.ag6.passwordmanager.view.MainView;
 import dev.ag6.passwordmanager.view.View;
 import javafx.application.Platform;
@@ -40,9 +40,9 @@ public class MainController extends Controller<MainView> {
             stage.setY(event.getScreenY() + cursorOffsetY);
         });
 
-        HomeView view = new HomeView();
-        HomeController controller = new HomeController(view);
-        changeView(view, controller);
+        LoginView loginView = new LoginView();
+        LoginController controller = new LoginController(loginView);
+        this.changeView(loginView, controller);
     }
 
     public void changeView(View view, Controller<? extends View> controller) {

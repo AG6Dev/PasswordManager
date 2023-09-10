@@ -20,6 +20,8 @@ dependencies {
     implementation 'io.github.palexdev:materialfx:11.14.0'
     implementation 'com.google.code.gson:gson:2.10.1'
 
+    implementation 'org.mindrot:jbcrypt:0.4'
+
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
     compileOnly 'org.projectlombok:lombok:1.18.26'
 }

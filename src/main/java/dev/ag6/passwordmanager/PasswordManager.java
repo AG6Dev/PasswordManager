@@ -14,10 +14,12 @@ import javafx.stage.StageStyle;
 
 //TODO: Add a sort of "master password" which the current user needs to enter to get access to their passwords
 //TODO: Add some sort of encryption
+//TODO: Change primary colours to something else - I don't like it
 public final class PasswordManager extends Application {
     private static PasswordManager manager;
 
     private MainController mainController;
+
 
     public static <V extends View> void changeView(V view, Controller<V> controller) {
         manager.mainController.changeView(view, controller);
