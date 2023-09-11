@@ -52,12 +52,25 @@ public class LoginView extends View {
         passwordArea.getChildren().addAll(passwordField);
         passwordArea.setAlignment(Pos.CENTER);
 
+        //todo: reset button
+        HBox buttonArea = new HBox();
+
         this.continueButton = new Button();
+        this.continueButton.setAlignment(Pos.CENTER);
         this.continueButton.setText("Enter");
+        this.continueButton.setBackground(new Background(new BackgroundFill(Color.web("#3700B3"), new CornerRadii(10D), Insets.EMPTY)));
+        this.continueButton.setStyle("-fx-font-size:15");
+        this.continueButton.setTextFill(Color.WHITE);
+        this.continueButton.setPrefHeight(50D);
+        this.continueButton.setPrefWidth(150D);
+
+        buttonArea.setPadding(new Insets(0, 0, 50, 0));
+        buttonArea.setAlignment(Pos.TOP_CENTER);
+        buttonArea.getChildren().add(this.continueButton);
 
         this.mainRoot.setTop(topLabels);
         this.mainRoot.setCenter(passwordArea);
-        this.mainRoot.setBottom(continueButton);
+        this.mainRoot.setBottom(buttonArea);
     }
 
     @Override
