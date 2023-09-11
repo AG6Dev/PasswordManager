@@ -8,6 +8,7 @@ import dev.ag6.passwordmanager.util.CryptoUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +30,7 @@ public final class AccountManager {
     public boolean login(String enteredPassword, boolean firstTime) {
         try {
             if (firstTime) {
-                createNeededFiles();
+                createNeededDirectories();
                 String hashEnter = CryptoUtils.hashPassword(enteredPassword);
                 Files.writeString(ACCOUNTS_LOCATION.resolve("master.pwm"), hashEnter);
 
@@ -41,14 +42,17 @@ public final class AccountManager {
 
             if (correctPassword) {
                 //decrypt
-                byte[] data = Files.readAllBytes(ACCOUNTS_LOCATION.resolve("accounts.pwm"));
-                String decryptedJson = CryptoUtils.decryptDataAES(new String(data), CryptoUtils.hashPassword(enteredPassword));
+               if(Files.exists(ACCOUNTS_LOCATION.resolve("accounts.pwm"))) {
+                   byte[] data = Files.readAllBytes(ACCOUNTS_LOCATION.resolve("accounts.pwm"));
+                   String decryptedJson = CryptoUtils.decryptDataAES(new String(data), CryptoUtils.hashPassword(enteredPassword));
 
-                JsonArray passwordArray = GSON.fromJson(decryptedJson, JsonArray.class);
-                List<Account> acc = passwordArray.asList().stream().map(jsonElement -> GSON.fromJson(jsonElement, Account.class)).toList();
-                this.accounts.addAll(acc);
+                   JsonArray passwordArray = GSON.fromJson(decryptedJson, JsonArray.class);
+                   List<Account> acc = passwordArray.asList().stream().map(jsonElement -> GSON.fromJson(jsonElement, Account.class)).toList();
+                   this.accounts.addAll(acc);
 
-                return true;
+                   return true;
+               }
+               return true;
             }
             return false;
         } catch (IOException exception) {
@@ -74,13 +78,11 @@ public final class AccountManager {
         return !Files.exists(ACCOUNTS_LOCATION.resolve("master.pwm"));
     }
 
-    private void createNeededFiles() {
+    private void createNeededDirectories() {
         try {
-            Files.createDirectories(ACCOUNTS_LOCATION.getParent());
-            Files.setAttribute(ACCOUNTS_LOCATION.getFileName(), "dos:hidden", true);
-            Files.createFile(ACCOUNTS_LOCATION.resolve("master.pwm"));
-            Files.createFile(ACCOUNTS_LOCATION.resolve("accounts.pwm"));
-        } catch (Exception e) {
+            Files.createDirectories(ACCOUNTS_LOCATION);
+            Files.setAttribute(ACCOUNTS_LOCATION, "dos:hidden", true);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
