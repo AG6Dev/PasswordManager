@@ -1,0 +1,46 @@
+/*
+    TODO: Fix padding
+ */
+
+.top-labels-vbox {
+    -fx-alignment: top_center;
+    -fx-padding: 30 0 0 0;
+}
+
+.welcome-label, .prompt-label {
+    -fx-font-family: 'Roboto';
+    -fx-font-size: 30;
+    -fx-text-fill: #fff;
+}
+
+.password-area-hbox {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+.password-field {
+    -fx-pref-height: 35;
+    -fx-pref-width: 350;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+
+    -fx-background-color: #2E2E2E;
+    -fx-background-radius: 10;
+}
+
+.continue-button {
+    -fx-alignment: center;
+    -fx-pref-height: 50;
+    -fx-pref-width: 150;
+
+    -fx-font-size: 15;
+    -fx-text-fill: white;
+
+    -fx-background-color: #3700B3;
+    -fx-background-radius: 10;
+}
+
+.button-area-hbox {
+    -fx-alignment: top_center;
+    -fx-padding: 0 0 50 0;
+}

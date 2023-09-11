@@ -1,3 +1,37 @@
+.root {
+    -fx-font-family: 'Roboto';
+    -fx-font-size: 15;
+    -fx-text-fill: #fff;
+
+    -fx-background-color: #121212;
+    -fx-background-radius: 15;
+}
+
+.window-title {
+    -fx-text-fill: #fff;
+}
+
+.window-header {
+    -fx-background-color: #1E1E1E;
+    -fx-background-radius: 15 15 0 0;
+
+    -fx-alignment: center;
+    -fx-padding: 10;
+}
+
+.window-header-left {
+    -fx-alignment: center_left;
+}
+
+.window-header-right {
+    -fx-alignment: center_right;
+    -fx-spacing: 10;
+}
+
+.always-on-top-button, .minimize-button, .close-button {
+    -fx-opacity: 0.5;
+}
+
 .always-on-top-button:hover {
     -fx-opacity: 1.0;
 }

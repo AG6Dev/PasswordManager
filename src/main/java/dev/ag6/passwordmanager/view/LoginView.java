@@ -1,13 +1,12 @@
 package dev.ag6.passwordmanager.view;
 
 import dev.ag6.passwordmanager.components.TogglePasswordField;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import lombok.Getter;
 
 public class LoginView extends View {
@@ -24,48 +23,36 @@ public class LoginView extends View {
 
     public LoginView() {
         this.mainRoot = new BorderPane();
+        this.getRoot().getStylesheets().add("css/view/login.css");
 
         VBox topLabels = new VBox();
-        topLabels.setAlignment(Pos.TOP_CENTER);
-        topLabels.setPadding(new Insets(30, 0, 0, 0));
+        topLabels.getStyleClass().add("top-labels-vbox");
 
         Label welcomeLabel = new Label("Welcome, %s".formatted(System.getProperty("user.name")));
-        welcomeLabel.setFont(Font.font("Roboto", 30));
-        welcomeLabel.setTextFill(Color.WHITE);
+        welcomeLabel.getStyleClass().add("welcome-label");
 
         this.promptLabel = new Label();
-        this.promptLabel.setTextFill(Color.WHITE);
-        this.promptLabel.setFont(Font.font("Roboto", 30));
+        promptLabel.getStyleClass().add("prompt-label");
 
         topLabels.getChildren().addAll(welcomeLabel, promptLabel);
 
         HBox passwordArea = new HBox();
+        passwordArea.getStyleClass().add("password-area-hbox");
 
         this.passwordField = new TogglePasswordField();
+        this.passwordField.getStyleClass().add("password-field");
         this.passwordField.setPromptText("Password");
-        this.passwordField.setPrefHeight(35D);
-        this.passwordField.setPrefWidth(350);
-        this.passwordField.setStyle("-fx-text-fill: white; -fx-font-size: 15");
-        this.passwordField.setBackground(new Background(new BackgroundFill(Color.web("#2E2E2E"), new CornerRadii(10D), Insets.EMPTY)));
 
-        passwordArea.setSpacing(10D);
         passwordArea.getChildren().addAll(passwordField);
-        passwordArea.setAlignment(Pos.CENTER);
 
         //todo: reset button
         HBox buttonArea = new HBox();
+        buttonArea.getStyleClass().add("button-area-hbox");
+        System.out.println(topLabels.getPadding().getTop());
 
-        this.continueButton = new Button();
-        this.continueButton.setAlignment(Pos.CENTER);
-        this.continueButton.setText("Enter");
-        this.continueButton.setBackground(new Background(new BackgroundFill(Color.web("#3700B3"), new CornerRadii(10D), Insets.EMPTY)));
-        this.continueButton.setStyle("-fx-font-size:15");
-        this.continueButton.setTextFill(Color.WHITE);
-        this.continueButton.setPrefHeight(50D);
-        this.continueButton.setPrefWidth(150D);
+        this.continueButton = new Button("Enter");
+        this.continueButton.getStyleClass().add("continue-button");
 
-        buttonArea.setPadding(new Insets(0, 0, 50, 0));
-        buttonArea.setAlignment(Pos.TOP_CENTER);
         buttonArea.getChildren().add(this.continueButton);
 
         this.mainRoot.setTop(topLabels);

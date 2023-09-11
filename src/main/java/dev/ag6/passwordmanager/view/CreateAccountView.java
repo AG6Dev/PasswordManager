@@ -38,15 +38,18 @@ public class CreateAccountView extends View {
 
         // bottom
         this.bottomBar = new HBox();
+        this.bottomBar.getStyleClass().add("bottom-bar-hbox");
         this.bottomBar.setAlignment(Pos.CENTER);
         this.bottomBar.setSpacing(10D);
 
         this.backButton = new MFXButton("Discard", new MFXFontIcon(FontResources.X_ALT.getDescription()));
+        this.backButton.getStyleClass().add("back-button");
         this.backButton.setPrefSize(100D, 35D);
         this.backButton.setBackground(new Background(new BackgroundFill(Color.web("#CF6679"), new CornerRadii(10D), Insets.EMPTY)));
         this.backButton.setStyle("-fx-font-size:15");
 
         this.createButton = new MFXButton("Create", new MFXFontIcon(FontResources.PLUS.getDescription()));
+        this.createButton.getStyleClass().add("create-button");
         this.createButton.setPrefSize(100D, 35D);
         this.createButton.setBackground(new Background(new BackgroundFill(Color.web("#BB86FC"), new CornerRadii(10D), Insets.EMPTY)));
         this.createButton.setStyle("-fx-font-size:15");
@@ -56,17 +59,21 @@ public class CreateAccountView extends View {
         //main
 
         this.infoLayout = new VBox();
+        this.infoLayout.getStyleClass().add("info-layout-vbox");
         this.infoLayout.setBackground(Background.EMPTY);
         this.infoLayout.setAlignment(Pos.TOP_CENTER);
         this.infoLayout.setSpacing(10D);
 
         this.mainDetailsBox = new HBox();
+        this.mainDetailsBox.getStyleClass().add("main-details-hbox");
         this.mainDetailsBox.setAlignment(Pos.CENTER);
         this.usernameField = new MFXTextField();
+        this.usernameField.getStyleClass().add("username-field");
         this.usernameField.setPromptText("Username");
         this.usernameField.setPrefSize(200D, 35D);
 
         this.passwordField = new MFXTextField();
+        this.passwordField.getStyleClass().add("password-field");
         this.passwordField.setPromptText("Password");
         this.passwordField.setPrefSize(200D, 35D);
 
@@ -74,12 +81,14 @@ public class CreateAccountView extends View {
         //website details
 
         this.websiteDetailsBox = new HBox();
+        this.websiteDetailsBox.getStyleClass().add("website-details-hbox");
         this.websiteDetailsBox.setAlignment(Pos.CENTER);
         this.websiteUrlField = new MFXTextField();
         this.websiteUrlField.setPromptText("Website URL");
         this.websiteUrlField.setPrefSize(200D, 35D);
 
         this.websiteNameField = new MFXTextField();
+        this.websiteNameField.getStyleClass().add("website-name-hbox");
         this.websiteNameField.setPromptText("Website Name");
         this.websiteNameField.setPrefSize(200D, 35D);
 
@@ -87,6 +96,7 @@ public class CreateAccountView extends View {
 
         //notes
         HBox notesBox = new HBox();
+        notesBox.getStyleClass().add("notes-hbox");
         notesBox.setAlignment(Pos.CENTER);
         notesBox.setPrefSize(400D, 200D);
         this.notesArea = new TextArea();
@@ -97,9 +107,11 @@ public class CreateAccountView extends View {
 
         //other
         HBox labelBox = new HBox();
+        labelBox.getStyleClass().add("label-hbox");
         labelBox.setAlignment(Pos.CENTER);
 
         Label pageLabel = new Label("Add Account");
+        pageLabel.getStyleClass().add("info-label");
         pageLabel.setFont(Font.font("Roboto", 24D));
         pageLabel.setTextFill(Color.WHITE);
         pageLabel.setPadding(new Insets(10D));

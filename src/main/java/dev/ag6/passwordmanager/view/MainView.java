@@ -7,7 +7,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import lombok.Getter;
 
 public class MainView extends View {
@@ -26,13 +25,13 @@ public class MainView extends View {
     private final MFXFontIcon minimizeButton, closeButton, alwaysOnTopButton;
 
     public MainView() {
-
         this.mainFrame = new AnchorPane();
-        this.mainFrame.setBackground(new Background(new BackgroundFill(Color.web("#121212"), new CornerRadii(15D), Insets.EMPTY)));
+        this.mainFrame.getStyleClass().add("root");
         this.getMainFrame().getStylesheets().add("css/main.css");
 
         this.windowHeader = new HBox();
-        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false), Insets.EMPTY)));
+        this.windowHeader.getStyleClass().add("window-header");
+//        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false), Insets.EMPTY)));
         this.windowHeader.setAlignment(Pos.CENTER);
         this.windowHeader.setPadding(new Insets(10D));
 
@@ -41,26 +40,23 @@ public class MainView extends View {
         AnchorPane.setRightAnchor(windowHeader, 0D);
 
         HBox windowHeaderLeft = new HBox();
+        windowHeaderLeft.getStyleClass().add("window-header-left");
+
         Label windowTitle = new Label("Password Manager");
-        windowTitle.setFont(Font.font("Roboto", 15));
-        windowTitle.setTextFill(Color.WHITE);
-        windowHeaderLeft.setAlignment(Pos.CENTER_LEFT);
+        windowTitle.getStyleClass().add("window-title");
 
         HBox windowHeaderRight = new HBox();
-        windowHeaderRight.setAlignment(Pos.CENTER_RIGHT);
-        windowHeaderRight.setSpacing(10D);
+        windowHeaderRight.getStyleClass().add("window-header-right");
+
 
         this.alwaysOnTopButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.web("#7a0ed9"));
         this.alwaysOnTopButton.getStyleClass().add("always-on-top-button");
-        this.alwaysOnTopButton.setOpacity(0.5D);
 
         this.minimizeButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.rgb(255, 191, 55));
         this.minimizeButton.getStyleClass().add("minimize-button");
-        this.minimizeButton.setOpacity(0.5D);
 
         this.closeButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.rgb(239, 110, 107));
         this.closeButton.getStyleClass().add("close-button");
-        this.closeButton.setOpacity(0.5D);
 
         Region filler = new Region();
         HBox.setHgrow(filler, Priority.ALWAYS);
