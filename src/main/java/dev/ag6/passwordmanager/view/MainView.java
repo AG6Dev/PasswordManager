@@ -20,6 +20,9 @@ public class MainView extends View {
     private final StackPane contentArea;
 
     @Getter
+    private final StackPane overlayPane;
+
+    @Getter
     private final MFXFontIcon minimizeButton, closeButton, alwaysOnTopButton;
 
     public MainView() {
@@ -62,6 +65,12 @@ public class MainView extends View {
         Region filler = new Region();
         HBox.setHgrow(filler, Priority.ALWAYS);
 
+        this.overlayPane = new StackPane();
+        AnchorPane.setTopAnchor(overlayPane, 43D);
+        AnchorPane.setLeftAnchor(overlayPane, 0D);
+        AnchorPane.setRightAnchor(overlayPane, 0D);
+        AnchorPane.setBottomAnchor(overlayPane, 0D);
+
         this.contentArea = new StackPane();
         AnchorPane.setTopAnchor(contentArea, 43D);
         AnchorPane.setLeftAnchor(contentArea, 0D);
@@ -72,8 +81,10 @@ public class MainView extends View {
         windowHeaderRight.getChildren().addAll(alwaysOnTopButton, minimizeButton, closeButton);
         this.windowHeader.getChildren().addAll(windowHeaderLeft, filler, windowHeaderRight);
 
+        this.overlayPane.getChildren().add(contentArea);
+
         this.mainFrame.getChildren().add(windowHeader);
-        this.mainFrame.getChildren().add(contentArea);
+        this.mainFrame.getChildren().add(overlayPane);
     }
 
     @Override
