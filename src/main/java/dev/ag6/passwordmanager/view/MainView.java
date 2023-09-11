@@ -91,8 +91,4 @@ public class MainView extends View {
     public Pane getRoot() {
         return this.mainFrame;
     }
-
-    public void addDebugBorder(Region node, Color color) {
-        node.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-    }
 }
