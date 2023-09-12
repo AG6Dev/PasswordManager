@@ -2,8 +2,6 @@ package dev.ag6.passwordmanager.view;
 
 import io.github.palexdev.materialfx.font.FontResources;
 import io.github.palexdev.materialfx.font.MFXFontIcon;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -27,13 +25,10 @@ public class MainView extends View {
     public MainView() {
         this.mainFrame = new AnchorPane();
         this.mainFrame.getStyleClass().add("root");
-        this.getMainFrame().getStylesheets().add("css/main.css");
+        this.getMainFrame().getStylesheets().add("css/view/main.css");
 
         this.windowHeader = new HBox();
         this.windowHeader.getStyleClass().add("window-header");
-//        this.windowHeader.setBackground(new Background(new BackgroundFill(Color.web("#1E1E1E"), new CornerRadii(15D, 15D, 0D, 0D, false), Insets.EMPTY)));
-        this.windowHeader.setAlignment(Pos.CENTER);
-        this.windowHeader.setPadding(new Insets(10D));
 
         AnchorPane.setTopAnchor(windowHeader, 0D);
         AnchorPane.setLeftAnchor(windowHeader, 0D);
@@ -47,7 +42,6 @@ public class MainView extends View {
 
         HBox windowHeaderRight = new HBox();
         windowHeaderRight.getStyleClass().add("window-header-right");
-
 
         this.alwaysOnTopButton = new MFXFontIcon(FontResources.CIRCLE.getDescription(), 15.0D, Color.web("#7a0ed9"));
         this.alwaysOnTopButton.getStyleClass().add("always-on-top-button");

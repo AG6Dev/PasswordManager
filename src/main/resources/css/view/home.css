@@ -1,0 +1,26 @@
+.top-bar-hbox {
+    -fx-alignment: center_right;
+    -fx-spacing: 10;
+    -fx-padding: 10
+}
+
+.search-field {
+    -fx-pref-height: 35;
+
+    -fx-text-fill: #fff;
+    -fx-font-size: 15;
+
+    -fx-background-color: #2E2E2E;
+    -fx-background-radius: 10;
+}
+
+.create-button {
+    -fx-background-color: #BB86FC;
+    -fx-background-radius: 10;
+
+    -fx-font-size: 15;
+
+
+    -fx-pref-height: 35;
+    -fx-pref-width: 100;
+}
