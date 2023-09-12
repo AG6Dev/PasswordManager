@@ -1,0 +1,55 @@
+.username-field, .password-field, .website-url-field, .website-name-field {
+    -fx-pref-width: 200;
+    -fx-pref-height: 35;
+
+    -fx-background-color: #2E2E2E;
+    -fx-background-radius: 10;
+}
+
+.notes-area {
+    -fx-background-color: #2E2E2E;
+    -fx-background-radius: 10;
+    -fx-wrap-text: true
+
+}
+
+.notes-hbox {
+    -fx-pref-width: 400;
+    -fx-pref-height: 200;
+}
+
+.back-button, .create-button {
+    -fx-font-size: 15;
+
+    -fx-pref-width: 100;
+    -fx-pref-height: 35;
+
+    -fx-background-radius: 10;
+}
+
+.info-layout-vbox {
+    -fx-alignment: top_center;
+}
+
+.back-button {
+    -fx-background-color: #CF6679;
+}
+
+.create-button {
+    -fx-background-color: #BB86FC;
+}
+
+.page-label {
+    -fx-font-family: 'Roboto';
+    -fx-font-size: 24;
+    -fx-text-fill: #fff;
+    -fx-padding: 10 10 10 10;
+}
+
+.main-details-hbox, .website-details-hbox, .info-layout-vbox, .bottom-bar-hbox {
+    -fx-spacing: 10
+}
+
+.main-details-hbox, .bottom-bar-hbox, .website-details-hbox, .notes-hbox, .label-hbox {
+    -fx-alignment: center;
+}
