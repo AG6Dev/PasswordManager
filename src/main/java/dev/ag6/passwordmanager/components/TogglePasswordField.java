@@ -36,6 +36,11 @@ public class TogglePasswordField extends TextField {
                 control.setText(null);
                 control.setText(txt);
                 control.positionCaret(pos);
+
+                if (newVal)
+                    showButton.setGraphic(new MFXFontIcon(FontResources.EYE_SLASH.getDescription()));
+                else
+                    showButton.setGraphic(new MFXFontIcon(FontResources.EYE.getDescription()));
             });
 
             this.showButton.translateXProperty().bind(new DoubleBinding() {
