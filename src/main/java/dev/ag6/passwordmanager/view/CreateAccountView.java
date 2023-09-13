@@ -81,8 +81,6 @@ public class CreateAccountView extends View {
         this.notesArea.setPromptText("Additional Notes...");
         this.notesArea.setBackground(new Background(new BackgroundFill(Color.web("#2E2E2E"), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        notesArea.getBackground().getFills().stream().map(BackgroundFill::getFill).forEach(System.out::println);
-
         notesBox.getChildren().add(this.notesArea);
 
         HBox labelBox = new HBox();
