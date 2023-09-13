@@ -9,8 +9,9 @@
 .notes-area {
     -fx-background-color: #2E2E2E;
     -fx-background-radius: 10;
-    -fx-wrap-text: true
+    -fx-wrap-text: true;
 
+    -fx-text-fill: #fff;
 }
 
 .notes-hbox {

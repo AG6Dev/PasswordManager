@@ -12,9 +12,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-//TODO: Add a sort of "master password" which the current user needs to enter to get access to their passwords
 //TODO: Add some sort of encryption
-//TODO: Change primary colours to something else - I don't like it
+//TODO: change the button colours they're so ugly
 public final class PasswordManager extends Application {
     private static PasswordManager manager;
 

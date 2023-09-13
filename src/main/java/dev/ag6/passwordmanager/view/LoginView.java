@@ -48,7 +48,6 @@ public class LoginView extends View {
         //todo: reset button
         HBox buttonArea = new HBox();
         buttonArea.getStyleClass().add("button-area-hbox");
-        System.out.println(topLabels.getPadding().getTop());
 
         this.continueButton = new Button("Enter");
         this.continueButton.getStyleClass().add("continue-button");

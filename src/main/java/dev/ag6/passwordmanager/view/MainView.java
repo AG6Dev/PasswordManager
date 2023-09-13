@@ -7,19 +7,13 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import lombok.Getter;
 
+@Getter
 public class MainView extends View {
-    @Getter
+
     private final AnchorPane mainFrame;
-    @Getter
     private final HBox windowHeader;
-
-    @Getter
     private final StackPane contentArea;
-
-    @Getter
     private final StackPane overlayPane;
-
-    @Getter
     private final MFXFontIcon minimizeButton, closeButton, alwaysOnTopButton;
 
     public MainView() {
